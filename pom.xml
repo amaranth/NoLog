@@ -7,8 +7,8 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <name>Cooldown</name>
-    <description>Plugin to test logout cooldown</description>
-    <url>https://github.com/amaranth/CooldownTest</url>
+    <description>Stop players from logging out to avoid dying</description>
+    <url>https://github.com/amaranth/Cooldown</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

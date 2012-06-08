@@ -1,0 +1,19 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+
+author: Travis Watkins
+website: ${project.url}
+
+main: ${project.groupId}.${project.artifactId}.${project.name}
+
+commands:
+  cooldown:
+    description: See and modify cooldown settings
+    permission: cooldown.admin
+
+permissions:
+  cooldown.immune:
+    description: Allow the player to ignore any potential cooldowns and logout immediately
+  cooldown.admin:
+    description: Allow the player to see and modify cooldown settings

@@ -17,6 +17,8 @@ public class Configuration {
     public static int DAMAGE_TIME;
     // Length of cooldown to apply on quit if player was recently damaged
     public static int DAMAGE_COOLDOWN_TICKS;
+    // If we should only consider PVP damage for the cooldown
+    public static boolean DAMAGE_ONLY_PVP;
 
     public Configuration(NoLog instance) {
         plugin = instance;
@@ -35,6 +37,7 @@ public class Configuration {
         config.set("radius-cooldown-ticks", RADIUS_COOLDOWN_TICKS);
         config.set("damage-time", DAMAGE_TIME);
         config.set("damage-cooldown-ticks", DAMAGE_COOLDOWN_TICKS);
+        config.set("damage-only-pvp", DAMAGE_ONLY_PVP);
         plugin.saveConfig();
     }
 
@@ -46,5 +49,6 @@ public class Configuration {
         RADIUS_COOLDOWN_TICKS = config.getInt("radius-cooldown-ticks");
         DAMAGE_TIME           = config.getInt("damage-time");
         DAMAGE_COOLDOWN_TICKS = config.getInt("damage-cooldown-ticks");
+        DAMAGE_ONLY_PVP       = config.getBoolean("damage-only-pvp");
     }
 }

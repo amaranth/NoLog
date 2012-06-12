@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerDisconnectEvent;
@@ -42,8 +43,10 @@ public class NoLogListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.getEntityType() == EntityType.PLAYER) {
-            final Player player = (Player) event.getEntity();
-            damageTimes.put(player.getName(), System.currentTimeMillis());
+            if (!Configuration.DAMAGE_ONLY_PVP || (event instanceof EntityDamageByEntityEvent && ((EntityDamageByEntityEvent)event).getDamager().getType() == EntityType.PLAYER)) {
+                final Player player = (Player) event.getEntity();
+                damageTimes.put(player.getName(), System.currentTimeMillis());
+            }
         }
     }
 

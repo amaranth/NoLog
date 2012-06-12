@@ -18,6 +18,7 @@ public class NoLog extends JavaPlugin {
         sender.sendMessage(ChatColor.GOLD + "  radius-cooldown [ticks] " + ChatColor.GRAY + "- " + ChatColor.RESET + "Set ticks for radius cooldown");
         sender.sendMessage(ChatColor.GOLD + "  damage-timeout [time] " + ChatColor.GRAY + "- " + ChatColor.RESET + "Set time in milliseconds to enforce damage cooldown");
         sender.sendMessage(ChatColor.GOLD + "  damage-cooldown [ticks] " + ChatColor.GRAY + "- " + ChatColor.RESET + "Set ticks for damage cooldown");
+        sender.sendMessage(ChatColor.GOLD + "  damage-only-pvp [true|false] " + ChatColor.GRAY + "- " + ChatColor.RESET + "Set whether damage cooldown only applies to PVP or not");
     }
 
     public void onEnable() {
@@ -41,6 +42,7 @@ public class NoLog extends JavaPlugin {
                     sender.sendMessage("  Radius Cooldown - " + Configuration.RADIUS_COOLDOWN_TICKS + " ticks");
                     sender.sendMessage("  Damage Timeout - " + Configuration.DAMAGE_TIME + " milliseconds");
                     sender.sendMessage("  Damage Cooldown - " + Configuration.DAMAGE_COOLDOWN_TICKS + " ticks");
+                    sender.sendMessage("  Damage Only PVP - " + Configuration.DAMAGE_ONLY_PVP);
                 } else if (args[0].equalsIgnoreCase("reload")) {
                     config.reload();
                     sender.sendMessage("NoLog configuration reloaded.");
@@ -52,6 +54,18 @@ public class NoLog extends JavaPlugin {
             }
 
             if (args.length > 1) {
+                if (args[0].equalsIgnoreCase("damage-only-pvp")) {
+                    boolean result = args[1].equalsIgnoreCase("yes") || args[1].equalsIgnoreCase("y") || args[1].equalsIgnoreCase("true");
+                    Configuration.DAMAGE_ONLY_PVP = result;
+                    config.save();
+                    if (result) {
+                        sender.sendMessage("Damage cooldown will only apply to PVP.");
+                    } else {
+                        sender.sendMessage("Damage cooldown will apply to all damage.");
+                    }
+                    return true;
+                }
+
                 int number;
                 try {
                     number = Integer.parseInt(args[1]);

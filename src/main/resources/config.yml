@@ -3,3 +3,4 @@ enemy-radius: 10
 radius-cooldown-ticks: 200
 damage-time: 10000
 damage-cooldown-ticks: 400
+damage-only-pvp: false

@@ -1,15 +1,15 @@
-package com.probablycoding.bukkit.cooldown;
+package com.probablycoding.bukkit.nolog;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Cooldown extends JavaPlugin {
+public class NoLog extends JavaPlugin {
     public Configuration config;
 
     private void sendHelpMessage(CommandSender sender) {
-        sender.sendMessage(ChatColor.GOLD + "Cooldown Commands: (/cooldown <command>)");
+        sender.sendMessage(ChatColor.GOLD + "NoLog Commands: (/nolog <command>)");
         sender.sendMessage(ChatColor.GOLD + "  help " + ChatColor.GRAY + "- " + ChatColor.RESET + "Show this help message");
         sender.sendMessage(ChatColor.GOLD + "  info " + ChatColor.GRAY + "- " + ChatColor.RESET + "Show current settings");
         sender.sendMessage(ChatColor.GOLD + "  reload " + ChatColor.GRAY + "- " + ChatColor.RESET + "Reload configuration from file");
@@ -23,11 +23,11 @@ public class Cooldown extends JavaPlugin {
     public void onEnable() {
         config = new Configuration(this);
         saveDefaultConfig();
-        getServer().getPluginManager().registerEvents(new CooldownListener(this), this);
+        getServer().getPluginManager().registerEvents(new NoLogListener(this), this);
     }
 
     public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
-        if (command.getName().equalsIgnoreCase("cooldown")) {
+        if (command.getName().equalsIgnoreCase("nolog")) {
             if (args.length == 0) {
                 sendHelpMessage(sender);
                 return true;
@@ -35,7 +35,7 @@ public class Cooldown extends JavaPlugin {
 
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("info")) {
-                    sender.sendMessage("Cooldown Status:");
+                    sender.sendMessage("NoLog Status:");
                     sender.sendMessage("  Default - " + Configuration.COOLDOWN_TICKS + " ticks");
                     sender.sendMessage("  Radius - " + Configuration.ENEMY_RADIUS + " blocks");
                     sender.sendMessage("  Radius Cooldown - " + Configuration.RADIUS_COOLDOWN_TICKS + " ticks");
@@ -43,7 +43,7 @@ public class Cooldown extends JavaPlugin {
                     sender.sendMessage("  Damage Cooldown - " + Configuration.DAMAGE_COOLDOWN_TICKS + " ticks");
                 } else if (args[0].equalsIgnoreCase("reload")) {
                     config.reload();
-                    sender.sendMessage("Cooldown configuration reloaded.");
+                    sender.sendMessage("NoLog configuration reloaded.");
                 } else {
                     sendHelpMessage(sender);
                 }

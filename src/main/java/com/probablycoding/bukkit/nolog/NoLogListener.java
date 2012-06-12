@@ -1,4 +1,4 @@
-package com.probablycoding.bukkit.cooldown;
+package com.probablycoding.bukkit.nolog;
 
 import java.util.HashMap;
 import org.bukkit.entity.Entity;
@@ -14,11 +14,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerReconnectEvent;
 
-public class CooldownListener implements Listener {
-    final private Cooldown plugin;
+public class NoLogListener implements Listener {
+    final private NoLog plugin;
     final private HashMap<String,Long> damageTimes = new HashMap<String,Long>();
 
-    public CooldownListener(Cooldown instance) {
+    public NoLogListener(NoLog instance) {
         plugin = instance;
     }
 

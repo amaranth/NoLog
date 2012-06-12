@@ -8,12 +8,12 @@ website: ${project.url}
 main: ${project.groupId}.${project.artifactId}.${project.name}
 
 commands:
-  cooldown:
+  nolog:
     description: See and modify cooldown settings
-    permission: cooldown.admin
+    permission: nolog.admin
 
 permissions:
-  cooldown.immune:
+  nolog.immune:
     description: Allow the player to ignore any potential cooldowns and logout immediately
-  cooldown.admin:
+  nolog.admin:
     description: Allow the player to see and modify cooldown settings

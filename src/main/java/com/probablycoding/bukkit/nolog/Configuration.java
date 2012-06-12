@@ -1,9 +1,9 @@
-package com.probablycoding.bukkit.cooldown;
+package com.probablycoding.bukkit.nolog;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class Configuration {
-    final private Cooldown plugin;
+    final private NoLog plugin;
 
     // Length of cooldown for all users, applied on join
     public static int COOLDOWN_TICKS;
@@ -18,7 +18,7 @@ public class Configuration {
     // Length of cooldown to apply on quit if player was recently damaged
     public static int DAMAGE_COOLDOWN_TICKS;
 
-    public Configuration(Cooldown instance) {
+    public Configuration(NoLog instance) {
         plugin = instance;
         loadStatics();
     }

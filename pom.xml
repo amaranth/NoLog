@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.probablycoding.bukkit</groupId>
-    <artifactId>cooldown</artifactId>
+    <artifactId>nolog</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <name>Cooldown</name>
+    <name>NoLog</name>
     <description>Stop players from logging out to avoid dying</description>
-    <url>https://github.com/amaranth/Cooldown</url>
+    <url>https://github.com/amaranth/NoLog</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.2.5-R3.1-SNAPSHOT</version>
+            <version>1.2.5-R4.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>

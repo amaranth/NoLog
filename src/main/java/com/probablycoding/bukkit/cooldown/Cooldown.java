@@ -22,7 +22,7 @@ public class Cooldown extends JavaPlugin {
 
     public void onEnable() {
         config = new Configuration(this);
-        this.saveDefaultConfig();
+        saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new CooldownListener(this), this);
     }
 
